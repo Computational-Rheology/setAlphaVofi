@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Magalhães
+    given-names: Gabriel M.
+    orcid: https://orcid.org/0000-0002-6959-5554
+  - family-names: Nóbrega
+    given-names: João M.
+    orcid: https://orcid.org/0000-0002-5303-6467
+title: "setAlphaVofi"
+version: 0.1
+date-released: 2024-07-22
