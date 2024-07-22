@@ -1,0 +1,147 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  plus                                  |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setAlphaVofiDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+field       alpha.water;
+
+type composedFunction;
+action intersect;
+composedFunction
+{
+    sin
+    {
+        type        sin;
+        direction   (1 0 0);
+        origin      (0.2 0.2 0.2);
+        amplitude   0.025;
+        up          (0 1 0);
+        period      0.5;
+    }
+
+    sphere0
+    {
+        type sphere;
+        radius 0.03125;
+        origin (0.95 0.8 0.95);
+    }
+
+    ellipsoid0
+    {
+        type        ellipsoid;
+        origin      (0.15 0.8 0.15);
+        semiAxis    (0.03125 0.0625 0.03125);
+    }
+
+    subComposed
+    {
+        type composedFunction;
+        action subtract;
+        composedFunction
+        {
+            sphere00
+            {
+                type sphere;
+                radius 0.0625;
+                origin (0.3 0.4 0.3);
+            }
+            sphere01
+            {
+                type sphere;
+                radius 0.0625;
+                origin (0.2 0.4 0.3);
+            }
+        }
+    }
+
+    sphere2
+    {
+        type sphere;
+        radius 0.1;
+        origin (0.45 0.45 0.45);
+    }
+
+    ellipsoid1
+    {
+        type        ellipsoid;
+        origin      (0.55 0.7 0.55);
+        semiAxis    (0.0625 0.15 0.0625);
+    }
+
+    ellipsoid2
+    {
+        type        ellipsoid;
+        origin      (0.25 0.35 0.85);
+        semiAxis    (0.15 0.1 0.2);
+    }
+
+    sphere3
+    {
+        type sphere;
+        radius 0.08;
+        origin (0.9 0.9 0.9);
+    }
+
+    sphere4
+    {
+        type sphere;
+        radius 0.07;
+        origin (0.1 0.9 0.9);
+    }
+
+    sphere5
+    {
+        type sphere;
+        radius 0.09;
+        origin (0.9 0.9 0.1);
+    }
+
+    ellipsoid3
+    {
+        type        ellipsoid;
+        origin      (0.9 0.4 0.1);
+        semiAxis    (0.0625 0.15 0.0625);
+    }
+
+    sphere6
+    {
+        type sphere;
+        radius 0.03125;
+        origin (0.9 0.75 0.3);
+    }
+
+    sphere7
+    {
+        type sphere;
+        radius 0.03125;
+        origin (0.9 0.5 0.3);
+    }
+
+    sphere8
+    {
+        type sphere;
+        radius 0.03125;
+        origin (0.9 0.7 0.35);
+    }
+
+    sphere9
+    {
+        type sphere;
+        radius 0.03125;
+        origin (0.9 0.6 0.5);
+    }
+}
+
+// ************************************************************************* //

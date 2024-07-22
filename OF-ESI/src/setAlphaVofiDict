@@ -1,0 +1,122 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  plus                                  |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setAlphaVofiDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Set the field to initialize 
+field       alpha.water; // required
+
+// Inverse initialization
+invert      true;        // optional
+
+// Initialization for a sphere
+type        sphere;
+radius      0.25;
+origin      (0.5 0.5 0.5);
+
+
+// Initialization for a plane
+// type        plane;
+// normal      (0.707 0.707 0);
+// origin      (0.5 0.5 0.5);
+
+
+// Initialization for a wave (sin)
+// type        sin;
+// direction   (1 0 0);
+// origin      (0.5 0.5  0.5 );
+// amplitude   0.1;
+// up          (0 1 0);
+// period      0.5;
+
+
+// Initialization for a cylinder
+// type        cylinder;
+// direction   (0 0 1);
+// radius      0.15;
+// origin      (0.5 0.5 0.5);
+
+
+// Initialization for a ellipsoid
+// type        ellipsoid;
+// origin      (0.5 0.5 0.5);
+// semiAxis    (0.15 0.25 0.15);
+
+
+// Initialization for a paraboloid
+// type            paraboloid;
+// coeffs          (0.5 0.5 0.5);
+
+
+// Composed initialization
+// type composedFunction;
+// How to deal with the multiple bodies. Available options:
+// - add
+// - subtract
+// - intersect
+// - minDist
+// action intersect;  // required
+
+// NOTE: it is possible to deal with sub compositions like
+// in the example bellow
+// composedFunction
+// {
+//     sin
+//     {
+//         type        sin;
+//         direction   (1 0 0);
+//         origin      (0.2 0.2 0.2);
+//         amplitude   0.025;
+//         up          (0 1 0);
+//         period      0.5;
+//     }
+
+//     sphere0
+//     {
+//         type sphere;
+//         radius 0.03125;
+//         origin (0.95 0.8 0.95);
+//     }
+
+//     subComposed
+//     {
+//         type composedFunction;
+//         action subtract;
+//         composedFunction
+//         {
+//             sphere00
+//             {
+//                 type sphere;
+//                 radius 0.0625;
+//                 origin (0.3 0.4 0.3);
+//             }
+//             sphere01
+//             {
+//                 type sphere;
+//                 radius 0.0625;
+//                 origin (0.2 0.4 0.3);
+//             }
+//         }
+//     }
+
+//     ellipsoid1
+//     {
+//         type        ellipsoid;
+//         origin      (0.55 0.7 0.55);
+//         semiAxis    (0.0625 0.15 0.0625);
+//     }
+// }
+
+// ************************************************************************* //

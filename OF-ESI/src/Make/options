@@ -1,0 +1,17 @@
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/sampling/lnInclude \
+    -I$(LIB_SRC)/transportModels/geometricVoF/lnInclude \
+    -IalphaImplicitFunctions/lnInclude \
+    -isystem$(VOFI_DIR)/include
+
+EXE_LIBS = \
+    -lfiniteVolume \
+    -lmeshTools \
+    -lgeometricVoF \
+    -ltwoPhaseMixture \
+    -ltwoPhaseProperties \
+    -L$(FOAM_USER_LIBBIN) -lalphaImplicitFunctions \
+    -L$(VOFI_DIR)/lib -lvofi 
+

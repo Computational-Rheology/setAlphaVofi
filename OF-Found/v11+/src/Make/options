@@ -1,0 +1,12 @@
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -IalphaImplicitFunctions/lnInclude \
+    -isystem$(VOFI_DIR)/include
+
+EXE_LIBS = \
+    -lfiniteVolume \
+    -lmeshTools \
+    -L$(FOAM_USER_LIBBIN) -lalphaImplicitFunctions \
+    -L$(VOFI_DIR)/lib -lvofi 
+
